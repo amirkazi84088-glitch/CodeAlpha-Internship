@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<style>
+    .about-section {
+        background-color: rgba(0, 0, 0, 0.6);
+        baground-color
+        padding: 40px;
+        border-radius: 12px;
+        max-width: 900px;
+        margin: 0 auto;
+        color: #fff;
+        font-size: 18px;
+        line-height: 1.7;
+        animation: fadeIn 1s ease-in-out;
+    }
+
+    .about-section h2 {
+        font-size: 36px;
+        margin-bottom: 20px;
+        color: #ffd700;
+        text-align: center;
+    }
+
+    .about-section p {
+        margin-bottom: 20px;
+    }
+
+    .about-section img {
+        width: 100%;
+        border-radius: 10px;
+        margin-top: 20px;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to   { opacity: 1; transform: translateY(0); }
+    }
+</style>
+
+<div class="about-section">
+    <h2>About Our Bike Showroom</h2>
+    <p>
+        Welcome to <strong>Bike Showroom</strong> — your one-stop destination for premium motorcycles and exceptional service.
+        Founded with passion for two-wheelers, we offer a wide range of bikes from top brands like Royal Enfield, Yamaha, KTM, and more.
+    </p>
+    <p>
+        Whether you’re a city commuter, an adventure enthusiast, or a speed lover, we have a perfect ride for you.
+        Our expert staff is here to guide you at every step — from choosing the right bike to completing your booking.
+    </p>
+    <p>
+        With a seamless online booking system, competitive pricing, and excellent customer support, we aim to redefine your biking experience.
+    </p>
+
+    <img src="{% static 'bike/static/images/showroom 1.jpg' %}" alt="About Showroom">
+</div>
+
+{% endblock %}

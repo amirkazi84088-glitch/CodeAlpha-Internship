@@ -1,0 +1,46 @@
+{% extends 'showroom/base.html' %}
+
+{% block content %}
+    <div class="animate__animated animate__fadeInDown">
+        <h2 style="font-size: 36px; margin-bottom: 20px;">Welcome to Our Bike Showroom</h2>
+        <p style="font-size: 18px; max-width: 700px;">
+            Discover top models, experience unmatched services, and book your dream ride online!
+            Our showroom offers premium bikes and professional customer support. 🚀
+        </p>
+        <br>
+        <a href="{% url 'book' %}" class="btn" style="font-size: 16px;">Book Your Ride Now</a>
+    </div>
+
+    <br><br>
+
+    <!-- Featured Bikes Section -->
+    <div>
+        <h3 style="font-size: 28px; margin-bottom: 20px;">🔥 Featured Bikes</h3>
+
+        <div style="display: flex; flex-wrap: wrap; gap: 30px;">
+            <!-- Example Bike 1 -->
+            <div style="background-color: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px; width: 280px;">
+                <img src="{% static 'showroom/images/bike1.jpg' %}" alt="Bike 1" style="width: 100%; border-radius: 8px;">
+                <h4>Royal Enfield Classic 350</h4>
+                <p>Starting ₹1.90 Lakh</p>
+                <a href="{% url 'book' %}" class="btn">Book Now</a>
+            </div>
+
+            <!-- Example Bike 2 -->
+            <div style="background-color: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px; width: 280px;">
+                <img src="{% static 'showroom/images/bike2.jpg' %}" alt="Bike 2" style="width: 100%; border-radius: 8px;">
+                <h4>Yamaha MT-15</h4>
+                <p>Starting ₹1.67 Lakh</p>
+                <a href="{% url 'book' %}" class="btn">Book Now</a>
+            </div>
+
+            <!-- Example Bike 3 -->
+            <div style="background-color: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px; width: 280px;">
+                <img src="{% static 'showroom/images/bike3.jpg' %}" alt="Bike 3" style="width: 100%; border-radius: 8px;">
+                <h4>KTM Duke 250</h4>
+                <p>Starting ₹2.38 Lakh</p>
+                <a href="{% url 'book' %}" class="btn">Book Now</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

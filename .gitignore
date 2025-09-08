@@ -1,0 +1,45 @@
+# === Python bytecode / cache ===
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+
+# === Virtual environments ===
+venv/
+.venv/
+ENV/
+env/
+env.bak/
+
+# === Environment variables / secrets ===
+.env
+*.env
+
+# === Database files (SQLite, testing) ===
+*.sqlite3
+db.sqlite3
+
+# === Logs ===
+*.log
+
+# === IDE / Editor settings ===
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# === OS generated files ===
+.DS_Store
+Thumbs.db
+
+# === Django specific ===
+# Ignore migration files if you don’t want to track them in Git
+# Uncomment next line if you want to ignore migrations
+#migrations/
+
+# Media and static uploads (if generated locally)
+
+# === Audit outputs (optional) ===
+# If you don’t want audit evidence uploaded, ignore audit folder:
+

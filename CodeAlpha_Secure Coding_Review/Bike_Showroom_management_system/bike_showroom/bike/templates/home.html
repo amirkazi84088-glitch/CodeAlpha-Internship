@@ -1,0 +1,103 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<!-- 🎯 Hero Slideshow -->
+<div class="slideshow-container" style="position: relative; max-width: 100%; overflow: hidden; border-radius: 10px;">
+    {% for bike in bikes %}
+    <div class="mySlides fade">
+        <img src="{{ bike.image.url }}" style="width:100%; height: 400px; object-fit: cover;">
+        <div class="slide-text">{{ bike.brand }} {{ bike.name }}</div>
+    </div>
+    {% endfor %}
+</div>
+
+<br>
+
+<!-- 🚀 Featured Bikes -->
+<h2 style="margin-bottom: 20px;">🔥 Featured Bikes</h2>
+<div class="bike-grid">
+    {% for bike in bikes %}
+    <div class="bike-card">
+        <img src="{{ bike.image.url }}" alt="{{ bike.name }}">
+        <h3>{{ bike.brand }} {{ bike.name }}</h3>
+        <p>₹{{ bike.price }}</p>
+        {% if bike.description %}
+        <p style="font-size: 14px;">{{ bike.description|truncatewords:15 }}</p>
+        {% endif %}
+        <a href="{% url 'book' %}" class="btn">Book Now</a>
+    </div>
+    {% empty %}
+    <p>No bikes available.</p>
+    {% endfor %}
+</div>
+
+<style>
+/* Slideshow styles */
+.mySlides { display: none; }
+.fade { animation: fadeEffect 1.5s; }
+@keyframes fadeEffect { from {opacity: 0.4} to {opacity: 1} }
+.slide-text {
+    position: absolute;
+    bottom: 20px; left: 20px;
+    color: white; font-size: 24px;
+    background: rgba(0,0,0,0.5);
+    padding: 8px 15px;
+    border-radius: 5px;
+}
+
+/* Bike grid styles */
+.bike-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+.bike-card {
+    background: rgba(255,255,255,0.1);
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.bike-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0px 8px 15px rgba(0,0,0,0.5);
+}
+.bike-card img {
+    width: 100%;
+    height: 180px;
+    border-radius: 8px;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+.bike-card:hover img { transform: scale(1.05); }
+.btn {
+    display: inline-block;
+    background: #ffd700;
+    color: black;
+    padding: 8px 12px;
+    margin-top: 10px;
+    border-radius: 4px;
+    font-weight: 600;
+    text-decoration: none;
+}
+.btn:hover { background: black; color: white; }
+</style>
+
+<script>
+let slideIndex = 0;
+showSlides();
+function showSlides() {
+    let slides = document.getElementsByClassName("mySlides");
+    for (let i = 0; i < slides.length; i++) { slides[i].style.display = "none"; }
+    slideIndex++;
+    if (slideIndex > slides.length) { slideIndex = 1; }
+    slides[slideIndex - 1].style.display = "block";
+    setTimeout(showSlides, 3000); // 3 seconds per slide
+}
+</script>
+
+{% endblock %}
